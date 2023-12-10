@@ -1,0 +1,8 @@
+INDEX VERSION 1.131+F:\OracleNEXTEDUCATION\Curso Java\control-de-stock\.metadata\.plugins\org.eclipse.jdt.core
+3959137331.index
+1171521300.index
+2099199392.index
+184463976.index
+1675533943.index
+1865797976.index
+2546122675.index

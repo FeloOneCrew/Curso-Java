@@ -1,0 +1,18 @@
+package proyecto_bytebank;
+
+public class CrearCuenta {
+	public static void main(String[] args) {
+		Cuenta primeraCuenta = new Cuenta(); // instanciando el objeto cuenta.
+		primeraCuenta.saldo = 1024;
+		
+		//new Cuenta() - Separame un espacion de memoria para este objeto que voy a crear con datos diferentes
+		
+		Cuenta SegundaCuenta = new Cuenta();
+		SegundaCuenta.saldo = 500;
+		
+		Cuenta TerceraCuenta = SegundaCuenta;
+		TerceraCuenta.saldo += 1500;
+		
+		System.out.println("Primera cuenta " + primeraCuenta.saldo + " Segunda cuenta " + SegundaCuenta.saldo );
+	}
+}

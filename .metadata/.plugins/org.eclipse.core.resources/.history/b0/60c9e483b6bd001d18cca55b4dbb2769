@@ -1,0 +1,53 @@
+package ConversorDeDivisas;
+
+public class EquivalenciaDolar extends Moneda {
+	private double valorconvertido;
+	private double EquiDolar;
+
+	public double getValorconvertido() {
+		return valorconvertido;
+	}
+
+	public void setValorconvertido(double valorconvertido) {
+		this.valorconvertido = valorconvertido;
+	}
+
+	public double getEquiDolar() {
+		return EquiDolar;
+	}
+
+	public EquivalenciaDolar(String demoneda, String amoneda, double valor) {
+		super(demoneda, amoneda, valor);
+		hacerEquivalencias();
+	}
+
+	public double hacerEquivalencias() {
+		switch (super.getDeMoneda()) {
+		case "Peso Colombiano":
+			EquiDolar = 4761;
+			valorconvertido = super.getValor() / EquiDolar;
+			break;
+
+		case "Dolar":
+			EquiDolar = 1.00;
+			valorconvertido = super.getValor() / EquiDolar;
+			break;
+		case "Euros":
+			// Código a ejecutar para la opción 3
+			break;
+		case "Libras Esterlinas":
+			// Código a ejecutar para la opción 3
+			break;
+		case "Yen Japones":
+			// Código a ejecutar para la opción 3
+			break;
+		case "Won sul-coreano":
+			// Código a ejecutar para la opción 3
+			break;
+		default:
+			// Código a ejecutar si no se seleccionó ninguna opción válida
+			break;
+		}
+		return valorconvertido;
+	}
+}

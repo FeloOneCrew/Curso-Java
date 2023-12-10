@@ -1,0 +1,161 @@
+package ConversorDeDivisas;
+
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class VentanaDialogo extends JFrame {
+	
+	private String titulo = "Conversor de Monedas";	
+	public JPanel panel;
+	public JButton btnConvertir;
+	JComboBox<String> DivisasIDesplegable;
+	JComboBox<String> DivisasFDesplegable;
+	JTextField valorDe;
+	JLabel etiqueta3;
+	
+	
+	public VentanaDialogo() {
+		
+		setSize(500, 500); // Establecer el tamaño de la ventana - setSize(int width = ancho, int height = largo)
+		setDefaultCloseOperation(EXIT_ON_CLOSE); // Cuando se cierre la ventana, automaticamente el programa se cierre.
+		setTitle(titulo); //Indicando el titulo de la ventana.
+		iniciarComponentes();
+		//setLocation(300, 400);// Establecer la posicion de la ventana en la pantalla.
+		//setBounds(600, 400, 500, 500); // esto resume el setLocation y el setsize.
+		setLocationRelativeTo(null); // con este metodo garantizamos que quede en la ventana centrada.
+		// Creamos un arreglo con los elementos que queremos en la lista desplegable
+	}
+	
+	private void iniciarComponentes() {
+		Panel();
+		Etiquetas();
+		cajasDeTexto();
+		Botones();
+		Listas();
+	}
+	
+	private void Panel() {
+		panel = new JPanel();
+		panel.setBackground(Color.lightGray); // establecer color al panel.
+		panel.setLayout(null);// desactivo el diseño del panel para que no me quede centrado los elementos que le vaya a colocar al panel.
+		this.getContentPane().add(panel); // agregamos el panel a la ventana.
+	}
+	
+	private void Etiquetas() {
+		//Creamos la etiqueta
+		JLabel etiqueta = new JLabel();
+		// Se establece el texto de la etiqueta.
+		etiqueta.setText("De : "); 
+		// posicion de la eiqueta, como el alto y el ancho.
+		etiqueta.setBounds(100, 50, 50, 30); 
+		// agregar color a la etiqueta
+		etiqueta.setForeground(Color.BLUE); 
+		//se agrega la etiqwuta al panel
+		panel.add(etiqueta);
+		
+		//Creamos la etiqueta
+		JLabel etiqueta2 = new JLabel();
+		// Se establece el texto de la etiqueta.
+		etiqueta2.setText("A : "); 
+		// posicion de la eiqueta, como el alto y el ancho.
+		etiqueta2.setBounds(300, 50, 50, 30); 
+		// agregar color a la etiqueta
+		etiqueta2.setForeground(Color.BLUE); 
+		//se agrega la etiqwuta al panel
+		panel.add(etiqueta2);
+		
+		//Creamos la etiqueta
+		etiqueta3 = new JLabel();
+		// Se establece el texto de la etiqueta.
+		etiqueta3.setText("A : "); 
+		// posicion de la eiqueta, como el alto y el ancho.
+		etiqueta3.setBounds(300, 50, 50, 30); 
+		// agregar color a la etiqueta
+		etiqueta3.setForeground(Color.RED); 
+		//se agrega la etiqwuta al panel
+		panel.add(etiqueta3);
+	}
+	
+	private void Listas() {
+		// Creamos un arreglo con los elementos que queremos en la lista desplegable
+		String[] DivisasI = { "Peso Colombiano", "Dólar", "Euros", "Libras Esterlinas", "Yen Japonés", "Won sul-coreano" };
+		// Creamos la lista desplegable y le pasamos los elementos como parámetro
+		DivisasIDesplegable = new JComboBox<>(DivisasI);
+		DivisasIDesplegable.setBounds(80, 100, 150, 30);
+		panel.add(DivisasIDesplegable);
+		
+		// Creamos un arreglo con los elementos que queremos en la lista desplegable
+		String[] DivisasF = { "Peso Colombiano", "Dólar", "Euros", "Libras Esterlinas", "Yen Japonés", "Won sul-coreano" };
+		// Creamos la lista desplegable y le pasamos los elementos como parámetro
+		DivisasFDesplegable = new JComboBox<>(DivisasF);
+		//Agregar objetos al comboBox
+		//DivisasFDesplegable.addItem("Lira Turca");
+		//Seleccionar el item que se ba a mostrar por defecto
+		//DivisasFDesplegable.setSelectedItem("Dólar");
+		DivisasFDesplegable.setBounds(280, 100, 150, 30);
+		panel.add(DivisasFDesplegable);
+	}
+	
+	private void cajasDeTexto() {
+		valorDe = new JTextField();
+		valorDe.setBounds(80, 150, 150, 30);
+		valorDe.setText("Ingrese el valor");
+		valorDe.getText();
+		panel.add(valorDe);
+		
+		System.out.println("El valor indicado por consolda es: " + valorDe.getText());
+		
+		/*JTextField valorA = new JTextField();
+		valorA.setBounds(280, 150, 150, 30);
+		valorA.setText("Ingrese el valor");
+		panel.add(valorA);*/
+	}
+	
+	private void Botones() {
+		//Crear un botton
+		btnConvertir = new JButton(); 
+		//Dar posicion y dimension
+		btnConvertir.setBounds(100, 240, 100, 40);
+		//Asignar nombre al boton
+		btnConvertir.setText("Convertir");
+		panel.add(btnConvertir);
+		
+		JButton btnLimpiar = new JButton();
+		btnLimpiar.setBounds(300, 240, 100, 40);
+		btnLimpiar.setText("Limpiar");
+		//Para que se desactive el boton.
+		btnLimpiar.setEnabled(false);
+		panel.add(btnLimpiar);
+		EventosConvertir();
+	}
+	
+	private void EventosConvertir() {
+		//Agregando evento de tipo ActionListener
+		ActionListener btnAct = new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String di = (String) DivisasIDesplegable.getSelectedItem();
+				String df = (String) DivisasFDesplegable.getSelectedItem();
+				double valor = Integer.parseInt(valorDe.getText());
+				EquivalenciaDolar info = new EquivalenciaDolar(di, df, valor);
+				etiqueta3.setText(" " +  info.getValorConvertido());
+				
+				
+				//System.out.println("De moneda " + info.getDeMoneda() + " A moneda: " + info.getAMoneda() + " valor a convertir: " + info.getValor());
+			}
+		};
+		btnConvertir.addActionListener(btnAct);
+		
+	}
+		
+}
+	

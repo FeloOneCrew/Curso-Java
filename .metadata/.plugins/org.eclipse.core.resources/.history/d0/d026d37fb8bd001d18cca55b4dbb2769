@@ -1,0 +1,93 @@
+package ConversorDeDivisas;
+
+public class EquivalenciaDolar extends Moneda {
+	private double valorconvertido;
+	private double EquiDolarDe;
+	private double EquiDolarA;
+
+	public double getValorconvertido() {
+		return valorconvertido;
+	}
+
+	public void setValorconvertido(double valorconvertido) {
+		this.valorconvertido = valorconvertido;
+	}
+
+	public double getEquiDolar() {
+		return EquiDolarDe;
+	}
+
+	public EquivalenciaDolar(String demoneda, String amoneda, double valor) {
+		super(demoneda, amoneda, valor);
+		hacerEquivalenciasDivisaDe();
+	}
+
+	public double hacerEquivalenciasDivisaDe() {
+		
+		switch (super.getDeMoneda()) {
+		case "Peso Colombiano":
+			EquiDolarDe = 4768;
+			valorconvertido = super.getValor() / EquiDolar;
+			break;
+
+		case "Dolar":
+			EquiDolarDe = 1.00;
+			valorconvertido = super.getValor() / EquiDolar;
+			break;
+		case "Euros":
+			EquiDolarDe = 0.95;
+			valorconvertido = super.getValor() / EquiDolar;
+			break;
+		case "Libras Esterlinas":
+			EquiDolarDe = 0.85;
+			valorconvertido = super.getValor() / EquiDolar;
+			break;
+		case "Yen Japones":
+			EquiDolarDe = 137.11;
+			valorconvertido = super.getValor() / EquiDolar;
+			break;
+		case "Won sul-coreano":
+			EquiDolarDe = 1316.60;
+			valorconvertido = super.getValor() / EquiDolar;
+			break;
+		default:
+			break;
+		}
+		return valorconvertido;
+	}
+	
+	public void hacerEquivalenciasDivisaA() {
+		
+		switch (super.getAMoneda()) {
+		case "Peso Colombiano":
+			EquiDolarA = 4768;
+			valorconvertido = super.getValor() / EquiDolar;
+			break;
+
+		case "Dolar":
+			EquiDolarA = 1.00;
+			valorconvertido = super.getValor() / EquiDolar;
+			break;
+		case "Euros":
+			EquiDolarA = 0.95;
+			valorconvertido = super.getValor() / EquiDolar;
+			break;
+		case "Libras Esterlinas":
+			EquiDolarA = 0.85;
+			valorconvertido = super.getValor() / EquiDolar;
+			break;
+		case "Yen Japones":
+			EquiDolarA = 137.11;
+			valorconvertido = super.getValor() / EquiDolar;
+			break;
+		case "Won sul-coreano":
+			EquiDolarA = 1316.60;
+			valorconvertido = super.getValor() / EquiDolar;
+			break;
+		default:
+			break;
+		}
+		this.setValorconvertido(valorconvertido);
+		return valorconvertido;
+	}
+}

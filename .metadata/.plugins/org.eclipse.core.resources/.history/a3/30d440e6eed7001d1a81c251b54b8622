@@ -1,0 +1,53 @@
+package Conversores;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Scanner;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONString;
+
+
+public class ConsumirApi {
+	/*public static void main(String[] args) throws IOException {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Ingrese su API Key de Fixer.io: ");
+        String apiKey = sc.nextLine();
+
+        System.out.println("Ingrese la divisa de origen: ");
+        String fromCurrency = sc.nextLine().toUpperCase();
+
+        System.out.println("Ingrese la divisa de destino: ");
+        String toCurrency = sc.nextLine().toUpperCase();
+
+        System.out.println("Ingrese la cantidad a convertir: ");
+        double amount = sc.nextDouble();
+
+        String urlStr = "http://data.fixer.io/api/convert?access_key=" + apiKey +
+                        "&from=" + fromCurrency + "&to=" + toCurrency + "&amount=" + amount;
+
+        URL url = new URL(urlStr);
+        HttpURLConnection con = (HttpURLConnection) url.openConnection();
+        con.setRequestMethod("GET");
+
+        BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+        String inputLine;
+        StringBuffer response = new StringBuffer();
+
+        while ((inputLine = in.readLine()) != null) {
+            response.append(inputLine);
+        }
+        in.close();
+
+        JSONObject jsonResponse = new JSONObject(response.toString());
+        double convertedAmount = jsonResponse.getDouble("result");
+
+        System.out.println(amount + " " + fromCurrency + " equivale a " + convertedAmount + " " + toCurrency);
+ 
+    }*/
+}

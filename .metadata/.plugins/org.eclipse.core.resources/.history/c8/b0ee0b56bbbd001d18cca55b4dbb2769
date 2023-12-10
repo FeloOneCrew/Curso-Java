@@ -1,0 +1,122 @@
+package ConversorDeDivisas;
+
+public class EquivalenciaDolar extends Moneda {
+	private double valorEquivDe;
+	private double valorEquivA;
+	private double EquiDolarDe;
+	private double EquiDolarA;
+	private double valorConvertido;
+
+	public EquivalenciaDolar(String demoneda, String amoneda, double valor) {
+		super(demoneda, amoneda, valor);
+		hacerEquivalenciasDivisaDe();
+	}
+	
+	public double getValorEquivDe() {
+		return valorEquivDe;
+	}
+
+	public void setValorEquivDe(double valorEquivDe) {
+		this.valorEquivDe = valorEquivDe;
+	}
+
+	public double getValorEquivA() {
+		return valorEquivA;
+	}
+
+	public void setValorEquivA(double valorEquivA) {
+		this.valorEquivA = valorEquivA;
+	}
+
+	public double getEquiDolarDe() {
+		return EquiDolarDe;
+	}
+
+	public double getEquiDolarA() {
+		return EquiDolarA;
+	}
+
+	public double getValorConvertido() {
+		return valorConvertido;
+	}
+
+	public void setValorConvertido(double valorConvertido) {
+		this.valorConvertido = valorConvertido;
+	}
+
+	public void hacerEquivalenciasDivisaDe() {
+		
+		switch (super.getDeMoneda()) {
+		case "Peso Colombiano":
+			EquiDolarDe = 4768;
+			valorEquivDe = super.getValor() / EquiDolarDe;
+			break;
+
+		case "Dolar":
+			EquiDolarDe = 1.00;
+			valorEquivDe = super.getValor() / EquiDolarDe;
+			break;
+		case "Euros":
+			EquiDolarDe = 0.95;
+			valorEquivDe = super.getValor() / EquiDolarDe;
+			break;
+		case "Libras Esterlinas":
+			EquiDolarDe = 0.85;
+			valorEquivDe = super.getValor() / EquiDolarDe;
+			break;
+		case "Yen Japones":
+			EquiDolarDe = 137.11;
+			valorEquivDe = super.getValor() / EquiDolarDe;
+			break;
+		case "Won sul-coreano":
+			EquiDolarDe = 1316.60;
+			valorEquivDe = super.getValor() / EquiDolarDe;
+			break;
+		default:
+			break;
+		}
+		
+		setValorEquivDe(valorEquivDe);
+		hacerEquivalenciasDivisaA();
+	}
+	
+	public void hacerEquivalenciasDivisaA() {
+		
+		switch (super.getAMoneda()) {
+		case "Peso Colombiano":
+			EquiDolarA = 4768;
+			valorEquivA = super.getValor() / EquiDolarA;
+			break;
+
+		case "Dolar":
+			EquiDolarA = 1.00;
+			valorEquivA = super.getValor() / EquiDolarA;
+			break;
+		case "Euros":
+			EquiDolarA = 0.95;
+			valorEquivA = super.getValor() / EquiDolarA;
+			break;
+		case "Libras Esterlinas":
+			EquiDolarA = 0.85;
+			valorEquivA = super.getValor() / EquiDolarA;
+			break;
+		case "Yen Japones":
+			EquiDolarA = 137.11;
+			valorEquivA = super.getValor() / EquiDolarA;
+			break;
+		case "Won sul-coreano":
+			EquiDolarA = 1316.60;
+			valorEquivA = super.getValor() / EquiDolarA;
+			break;
+		default:
+			break;
+		}
+		setValorEquivA(valorEquivA);
+		ConversionDivisa();
+	}
+	
+	public void ConversionDivisa() {
+		double = getValorEquivDe();
+	}
+	
+}
